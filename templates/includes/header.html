@@ -1,0 +1,23 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e2f2fd">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Package Planning</a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'dashboard'%}">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'input_data'%}">Input Data</a>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-outline-primary"  href="{% url 'dashboard'%}">Refresh</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

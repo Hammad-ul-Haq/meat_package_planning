@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<!--Main Container-->
+<div class="container-fluid">
+    <br class="sm">
+    <h1 class="display-6">Feasibility Check For 4 Priority Plan</h1>
+
+    <!--  feasibility check  -->
+    <div class="container-fluid">
+        <br class="sm">
+        <div class="container text-left">
+            <div class="row">
+                <div class="col">
+                    <b>Meat Feasibility Check:</b> {{meat_pieces_check.status}}
+                </div>
+
+                <div class="col">
+                    <b>Activity Time Checking-accumulated:</b> {{activity_time_check}}
+                </div>
+
+            </div>
+
+            <table class="table">
+            <thead>
+            <tr>
+                {% for columns in meat_pieces_check.columns %}
+                <th scope="col">{{column}}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% if meat_pieces_check.result %}
+            {% for i in meat_pieces_check.result %}
+            <tr>
+                <td>{{i.meat}}</td>
+                <td>{{i.priority}}</td>
+                <td>{{i.needed_pieces}}</td>
+
+            </tr>
+            {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+    <!--    best hourly plan-->
+    <div class="container-fluid">
+        <br class="sm">
+        <h1 class="display-6">Get the best Hourly Plan Result</h1>
+        <br class="sm">
+        <table class="table">
+            <thead>
+            <tr>
+                {% for column in result_.columns %}
+                <th scope="col">{{column}}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% if result_.data%}
+            {% for i in result_.data %}
+            <tr>
+                <td>{{i.method}}</td>
+                <td>{{i.combo_ratio}}</td>
+                <td>{{i.adjusting_rate}}</td>
+                <td>-</td>
+                <td>{{i.stdev}}</td>
+
+            </tr>
+            {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+        <!-- Show the Hourly Total Position Num for the Best Plan   -->
+    </div>
+    <div class="container-fluid">
+        <br>
+        <h1 class="display-6">Show the Hourly Total Position Num for the Best Plan</h1>
+        <br>
+
+        {{ plot | safe }}
+    </div>
+
+    <!-- END : Show the Hourly Total Position Num for the Best Plan   -->
+
+    <!--  START: Show OEE Table for the Best Plan  -->
+
+    <div class="container-fluid">
+        <br class="sm">
+        <h1 class="display-6">Get the best Hourly Plan Result</h1>
+        <br class="sm">
+        <table class="table">
+            <thead>
+            <tr>
+                {% for column in result_OEE_table.columns %}
+                <th scope="col">{{column}}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% if result_OEE_table.OEE_json%}
+            {% for i in result_OEE_table.OEE_json %}
+            <tr>
+                <td>{{i.Activity_Num}}</td>
+                <td>{{i.OEE}}</td>
+                <td>{{i.hours_num}}</td>
+                <td>{{ i.time_required }}</td>
+                <td>{{i.capacity}}</td>
+
+            </tr>
+            {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--  END: Show OEE Table for the Best Plan  -->
+
+<!-- START: Estimated Position Num for Each Activity (Best Plan) -->
+<div class="container-fluid">
+    <br>
+<h1 class="display-6">Estimated Position Num for Each Activity (Best Plan)</h1>
+    <br>
+
+    {% for p in pos_num_plots %}
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">
+        {{ p| safe}}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <br>
+
+</div>
+<!-- END: Estimated Position Num for Each Activity (Best Plan) -->
+
+
+<!-- START: More Detailed Analysis -->
+<div class="container-fluid">
+    <br>
+    <h1 class="display-6">More Detailed Analysis</h1>
+    <br>
+    <div class="container-fluid">
+        <br class="sm">
+        <h1 class="display-6">Get the best Hourly Plan Result</h1>
+        <p class="h4">To see how adjustment helps improve the overall efficiency.</p>
+        <p class="lead">
+        Use Method 1 get an hourly plan </n>
+        Method 1 calculate ratios based on pieces required by each sku.
+        </p>
+        <br class="sm">
+        <table class="table">
+            <thead>
+            <tr>
+                {% for column in result_hppm1_table.columns %}
+                <th scope="col">{{column}}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% if result_hppm1_table.hourly_packaging_plan_method1_json%}
+            {% for i in result_hppm1_table.hourly_packaging_plan_method1_json %}
+            <tr>
+                <td>{{i.index}}</td>
+                <td>{{i.meatkey}}</td>
+                <td>{{i.itemkey}}</td>
+                <td>{{i.itemdesc}}</td>
+                <td>{{ i.6 }}</td>
+                <td>{{i.7}}</td>
+                <td>{{i.8}}</td>
+                <td>{{i.9}}</td>
+                <td>{{i.10}}</td>
+                <td>{{i.11}}</td>
+                <td>{{i.12}}</td>
+                <td>{{i.13}}</td>
+                <td>{{i.14}}</td>
+                <td>{{i.15}}</td>
+                <td>{{i.16}}</td>
+                <td>{{i.17}}</td>
+                <td>{{i.18}}</td>
+                <td>{{i.19}}</td>
+                <td>{{i.20}}</td>
+                <td>{{i.21}}</td>
+                <td>{{i.22}}</td>
+
+            </tr>
+            {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="container-fluid">
+<br>
+<h1 class="display-6">Hourly Total Position Num Before Adjustment</h1>
+<br>
+<h4>Standard Deviation: {{stdv_hour_pos_BA}}</h4>
+    {{hour_pos_plot_BA | safe}}
+<!--<img src='data:image/png;base64,{{ hour_pos_plot_BA | safe }}' class="img-fluid">-->
+
+</div>
+
+<div class="container-fluid">
+<br>
+<h1 class="display-6">Hourly Total Position Num After Adjustment</h1>
+<br>
+    <h4>Standard Deviation: {{stdv_hour_pos_AA}}</h4>
+    {{hour_pos_plot_AA | safe}}
+<!--<img src='data:image/png;base64,{{ hour_pos_plot_AA | safe }}' class="img-fluid">-->
+
+</div>
+
+
+</div>
+
+
+<!-- END: More Detailed Analysis -->
+
+
+</div>
+
+{% endblock %}

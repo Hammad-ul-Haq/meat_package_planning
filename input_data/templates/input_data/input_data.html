@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div class="container-fluid">
+<!--<br><br>-->
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link {% if active == 'cap' %} active {% endif %}" aria-current="page" href="{% url 'capacity' %}">Capacity</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if active == 'prodmeat' %} active {% endif %}" href="{% url 'prodMeat' %}">Product Meat</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link{% if active == 'seq' %} active {% endif %}" href="{% url 'sequence' %}">Sequence</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link{% if active == 'req' %} active {% endif %}" href="{% url 'requirement' %}">Requirement</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link {% if active == 'meat' %} active {% endif %}" href="{% url 'meat' %}">Meat</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if active == 'meat_hourly' %} active {% endif %}" href="{% url 'meat_hourly' %}">Meat Hourly</a>
+  </li>
+</ul>
+
+<br>
+
+{{ cap_html |safe}}
+
+  </div>
+
+{% endblock%}
