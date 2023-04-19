@@ -77,7 +77,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'package_planning.wsgi.application'
 
 DATABASES = {
-    'default': DATABASE_URL.config(default=DATABASE_URL, conn_max_age=1800),
+    'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 }
 
 
