@@ -14,7 +14,8 @@ from pathlib import Path
 import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-DATABASE_URL ='postgresql://postgres:ZGmGMsDfnM30klQnOdTk@containers-us-west-107.railway.app:7436/railway'
+DATABASE_URL ='mysql://root:V6pI2QP2uqH5mBmeEnIW@containers-us-west-24.railway.app:6480/railway'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -76,8 +77,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'package_planning.wsgi.application'
 
 DATABASES = {
-    'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'railway',
+        'USER': 'root',
+        'PASSWORD': 'V6pI2QP2uqH5mBmeEnIW',
+        'HOST': 'containers-us-west-24.railway.app',
+        'PORT': '6480',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
+    }
 }
+
 
 
 
