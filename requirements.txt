@@ -6,7 +6,6 @@ et-xmlfile==1.1.0
 fonttools==4.38.0
 kiwisolver==1.4.4
 matplotlib==3.6.3
-mssql-django==1.2
 numpy==1.24.2
 openpyxl==3.1.0
 packaging==23.0
