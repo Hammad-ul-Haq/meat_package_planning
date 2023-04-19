@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-6pj)ps1g6ok$5ct_*wa(!c9f3!sknt%zpny@g(fhr&9q1dgfyo
 
 # SECURITY WARNING: don'templates run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['*','https://meatpackageplanning-production.up.railway.app/','https://meatpackageplanning-production.up.railway.app']
+ALLOWED_HOSTS = ['*','https://meatpackageplanning-production.up.railway.app/','https://meatpackageplanning-production.up.railway.app','meatpackageplanning-production.up.railway.app']
 CSRF_TRUSTED_ORIGINS = [
     'https://meatpackageplanning-production.up.railway.app/',
     'https://meatpackageplanning-production.up.railway.app'
