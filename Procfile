@@ -1,1 +1,1 @@
-web: gunicorn package_planing.wsgi --log-file
+web: gunicorn package_planning.wsgi --log-file
