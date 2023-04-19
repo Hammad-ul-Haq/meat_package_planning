@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+DATABASE_URL ='postgresql://postgres:K0puSzbQ2dEwKlUaBcl3@containers-us-west-37.railway.app:5645/railway'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -77,16 +77,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'package_planning.wsgi.application'
 
 DATABASES = {
-    "default": {
-        "ENGINE": "",
-        "NAME": "",
-        "USER": "",
-        "PASSWORD": "",
-        "HOST": "",
-        "PORT": "",
-        "OPTIONS": ""
-    },
+    'default': DATABASE_URL.config(default=DATABASE_URL, conn_max_age=1800),
 }
+
 
 
 # Password validation
