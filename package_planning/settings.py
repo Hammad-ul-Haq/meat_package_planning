@@ -76,18 +76,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'package_planning.wsgi.application'
 
-DATABASES = {
-    "default": {
-        "ENGINE": "mssql",
-        "NAME": "",
-        "USER": "",
-        "PASSWORD": "",
-        "HOST": "",
-        "PORT": "",
-        "OPTIONS": {"driver": "ODBC Driver 17 for SQL Server",
-        },
-    },
-}
+
 
 
 # Password validation
