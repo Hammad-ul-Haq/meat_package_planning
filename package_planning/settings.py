@@ -29,7 +29,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://meatpackageplanning-production.up.railway.app/',
     'https://meatpackageplanning-production.up.railway.app'
 ]
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
