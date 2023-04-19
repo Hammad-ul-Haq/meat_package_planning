@@ -76,7 +76,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'package_planning.wsgi.application'
 
-
+DATABASES = {
+    "default": {
+        "ENGINE": "",
+        "NAME": "",
+        "USER": "",
+        "PASSWORD": "",
+        "HOST": "",
+        "PORT": "",
+        "OPTIONS": ""
+    },
+}
 
 
 # Password validation
